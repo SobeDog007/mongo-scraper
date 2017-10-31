@@ -33,8 +33,8 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // DB configuration with Mongoose:
-mongoose.connect("mongodb://localhost/mongo_scraper_db");
-//mongoose.connect("mongodb://heroku_cbpkh3c6:gs4t0ojoeuur47bhi2pasulo3q@ds241895.mlab.com:41895/heroku_cbpkh3c6");
+//mongoose.connect("mongodb://localhost/mongo_scraper_db");
+mongoose.connect("mongodb://heroku_cbpkh3c6:gs4t0ojoeuur47bhi2pasulo3q@ds241895.mlab.com:41895/heroku_cbpkh3c6");
 var db = mongoose.connection;
 
 // Show any Mongoose errors:
