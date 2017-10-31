@@ -3,17 +3,33 @@
 // HW: mongo-scraper
 // app.js
 
-// Grab the articles as a JSON.
-$.getJSON("/articles", function(data) {
 
-  	// Loop through the articles.
-  	for (var i = 0; i < data.length; i++) {
 
-    	// Display the information on the page.
-    	$("#articles").append("<p data-id='" + data[i]._id + "'>" + 
-    		data[i].title + "<br />" + data[i].link + "</p>");
-  	}
+// When user clicks the name sort button, display the table sorted by name
+$("#scrape-btn").on("click", function() {
+
+  // Do an api call to the back end for json with all animals sorted by name
+  $.getJSON("/scrape", function(data) {
+    // Call our function to generate a table body
+    displayResults(data);
+  });
 });
+
+// When user clicks the "List Articles" button, display articles.
+$("#articles-btn").on("click", function() {
+
+	// Grab the articles as a JSON.
+	$.getJSON("/articles", function(data) {
+
+  		// Loop through the articles.
+  		for (var i = 0; i < data.length; i++) {
+
+    		// Display the information on the page.
+    		$("#articles").append("<p data-id='" + data[i]._id + "'>" + 
+    			data[i].title + "<br />" + data[i].link + "</p>");
+  		}
+	});
+};
 
 // Whenever someone clicks a p tag...
 $(document).on("click", "p", function() {
