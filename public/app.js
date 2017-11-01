@@ -29,7 +29,7 @@ $("#articles-btn").on("click", function() {
     			data[i].title + "<br />" + data[i].link + "</p>");
   		}
 	});
-};
+});
 
 // Whenever someone clicks a p tag...
 $(document).on("click", "p", function() {
